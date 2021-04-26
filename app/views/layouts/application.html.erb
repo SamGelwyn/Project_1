@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project1</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+    <nav>
+      <div class = "user_nav">
+     
+        <% if @current_user.present? %>
+          <%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete' %>
+        <% else %>
+          <%= link_to "Sign up", new_user_path %>
+          <%= link_to "Sign in", login_path %>
+        <% end %>
+      
+      </div>
+      <div class = "post_nav">
+      
+        <% if @current_user.present? %>
+          <%= link_to "New Post", new_post_path %>
+          <%= link_to "All Posts", posts_path %>
+        <% end %>
+      
+      </div>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>
