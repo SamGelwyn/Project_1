@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project1 | <%= yield(:title) %></title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  
-    <nav>
-      <div class = "user_nav">
-     
+    
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+      <ul class="nav justify-content-end my-2 my-lg-0">
         <% if @current_user.present? %>
-          <%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete' %>
+          
+            <li class="nav-item"><%= link_to "New Post", new_post_path, :class => "nav-link"%></li>
+            <li class="nav-item"><%= link_to "All Posts", posts_path, :class => "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete', :class => "nav-link"  %></li>
+
         <% else %>
-          <%= link_to "Sign up", new_user_path %>
-          <%= link_to "Sign in", login_path %>
+
+            <li class="nav-item"><%= link_to "Sign up", new_user_path, :class => "nav-link"  %></li>
+            <li class="nav-item"><%= link_to "Sign in", login_path, :class => "nav-link"  %></li>
+          
         <% end %>
-      
-      </div>
-      <div class = "post_nav">
-      
-        <% if @current_user.present? %>
-          <%= link_to "New Post", new_post_path %>
-          <%= link_to "All Posts", posts_path %>
-        <% end %>
-      
-      </div>
+      </ul>
     </nav>
 
-    <%= yield %>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
+
 </html>
