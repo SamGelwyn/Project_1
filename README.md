@@ -1,24 +1,7 @@
-# README
+# Project_1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my second GA project using Ruby on Rails.
 
-Things you may want to cover:
+It is an attempt to create a multi user blog site inspired by Twitter
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+herokuapp here - https://vast-wave-43606.herokuapp.com/
