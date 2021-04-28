@@ -6,5 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+u1 = User.create :name => 'Craigsy', :email => 'craigsy@ga.co', :password => 'chicken'
+u2 = User.create :name => 'Jonesy', :email => 'jonesy@ga.co', :password => 'chicken'
+puts "#{ User.count } users"
 
-u = User.create :email => 'craigsy@ga.co', :password => 'chicken'
+
+# Post.destroy_all 

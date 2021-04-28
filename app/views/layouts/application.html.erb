@@ -14,12 +14,13 @@
   <body>
     
     <nav class="navbar fixed-top navbar-dark bg-dark">
+      <%= link_to "Project_1", '#', id: "logo", :class => "navbar-brand mb-0 h1"%>
       <ul class="nav justify-content-end my-2 my-lg-0">
         <% if @current_user.present? %>
           
             <li class="nav-item"><%= link_to "New Post", new_post_path, :class => "nav-link"%></li>
             <li class="nav-item"><%= link_to "All Posts", posts_path, :class => "nav-link" %></li>
-            <li class="nav-item"><%= link_to "Logout #{ @current_user.email }", login_path, :method => 'delete', :class => "nav-link"  %></li>
+            <li class="nav-item"><%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :class => "nav-link"  %></li>
 
         <% else %>
 
@@ -32,6 +33,10 @@
 
     
     <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      
       <%= yield %>
     </div>
 
