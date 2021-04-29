@@ -6,7 +6,7 @@ class SessionController < ApplicationController
     user = User.find_by :email => params[:email]
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to posts_path # match
+      redirect_to user # match
     else
       flash[:error_message] = "Invalid email or password"
       redirect_to login_path # no match, try again
