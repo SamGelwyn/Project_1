@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_action :fetch_user, only: [:create, :destroy]
+  before_action :check_for_login, only: [:create, :destroy]
   before_action :correct_user, only: [:destroy]
 
   # def index

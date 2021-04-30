@@ -1,8 +1,8 @@
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="title"><h5><%= post.title %></h5></span>
   <span class="content">
-    <%= post.title %>
     <%= post.content %>
   </span>
   <span class="timestamp">
