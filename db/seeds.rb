@@ -23,7 +23,7 @@ puts "#{ User.count } users"
 
 Post.destroy_all
 users = User.order(:created_at).take(6)
-50.times do
+9.times do
   content = Faker::Lorem.sentence(word_count: 5)
   users.each { |user| user.posts.create!(content: content) }
 end
@@ -31,7 +31,7 @@ end
 # Following relationships
 users = User.all
 user  = users.first
-following = users[2..50]
-followers = users[3..40]
+following = users[2..5]
+followers = users[3..4]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
